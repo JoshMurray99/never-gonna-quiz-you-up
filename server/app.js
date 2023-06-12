@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const app = express();
+const fs = require("fs");
 
 const histQuestions = require("./questionsList/historyQuestions.json");
 const geoQuestions = require("./questionsList/geographyQuestions.json");
@@ -38,14 +39,37 @@ app.get('/:subject/leaderboard', (req, res) => {
     }
 })
 
+app.post('/:subject', (req, res) => {
+    const name = req.body.name.toLowerCase();
+    const score = Number(req.body.score);
+    const subject = req.params.subject.toLowerCase();
+
+    if (subject === "history") {
+        histLeaderboard.push({"name":name, "score":score})
+        const data = JSON.stringify(histLeaderboard);
+        fs.writeFile("./server/Leaderboards/historyLeaderboard.json", data, writeFileError);
+        res.sendStatus(201);
+    } else if (subject === "geography") {
+        geoLeaderboard.push({"name":name, "score":score})
+        const data = JSON.stringify(geoLeaderboard);
+        fs.writeFile("./server/Leaderboards/geographyLeaderboard.json", data, writeFileError);
+        res.sendStatus(201);
+    } else {
+        res.sendStatus(409);
+    }
+})
 
 
 
 
 
 
-
-
+function writeFileError(error) {
+    if (error) {
+        res.sendStatus(400);
+        console.log(error);
+    }
+}
 
 function shuffleArr(arr) {
     const newArr = [];
