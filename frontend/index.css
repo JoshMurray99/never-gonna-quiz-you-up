@@ -103,8 +103,9 @@ nav {
 
 .leaderboard {
     background-color: rgba(128, 0, 128, 0.726);
-    margin-right: 24px;
-    width: 30%;
+    margin: 24px 0;
+    width: 70%;
+    height: 40%;
 }
 
 .leaderboard__header {
@@ -120,4 +121,13 @@ nav {
 
 .leaderboard__title {
     font-size: 20px;
+}
+
+.leaderboards {
+    width: 50%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
