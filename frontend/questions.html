@@ -5,42 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questions</title>
-    <script defer src=".questions.js" ></script>
-    <link rel="stylesheet" href="./questions.css">
+    <script src="questions.js" defer></script>
+    <link rel="stylesheet" href="questions.css">
 </head>
 <body>
-    <div class="question-container">
-        <h1 id="question"></h1>
+    <h1 id="question" class="hide">What is the capital city of Poland? </h1>
+    <div id="question-container" class="hide">
+        
         <!--add in a timer-->
-    </div>
-    <div class="answer-grid">
-        <div class="answer-box">
-          <input class="answer-input" type="radio" name="answer" id="answer1">
-          <label for="answer1"></label>
-        </div>
-        <div class="answer-box">
-          <input class="answer-input" type="radio" name="answer" id="answer2">
-          <label for="answer2"></label>
-        </div>
-        <div class="answer-box">
-          <input class="answer-input" type="radio" name="answer" id="answer3">
-          <label for="answer3"></label>
-        </div>
-        <div class="answer-box">
-          <input class="answer-input" type="radio" name="answer" id="answer4">
-          <label for="answer4"></label>
-        </div>
-      </div>
-      
-    <div class="submit-answer">
-        <button>Submit Answer</button>
-    </div>
     
+    <div id="answer-buttons" class="answer-grid">
+        <button class="btn">Answer A hfidsfhods hf;iods;fh is oihsfioh  hsfi dsf isfh ios ioh hf </button>
+        <button class="btn">Answer B</button>
+        <button class="btn">Answer C</button>
+        <button class="btn">Answer D</button>
+      </div>
+    </div>
+
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Begin Quiz</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+      </div>
+   
     <div class="countdown">
         
     </div>
     
 </body>
 </html>
-
 
