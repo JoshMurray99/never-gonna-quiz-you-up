@@ -15,8 +15,7 @@ let subject = 'Geography'
 function questionSelection() {
      subject = 'History'
 }
-console.log(subject)
- module.exports = {input, subject}
+
 
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
