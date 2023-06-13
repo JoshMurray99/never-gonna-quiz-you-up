@@ -11,5 +11,5 @@
 {"question":"What is the name of the smallest country in the world?", "answersList": ["The Vatican City", "Italy", "Belgium", "Wales"], "answer": "The Vatican City"},
 {"question":"What country has the most natural lakes?","answersList": ["Canada","England", "France", "Iceland"], "answer":"Canada"},
 {"question":"Which country is also called The Netherlands?","answersList": ["Holland", "Finland", "Greenland", "Spain"],"answer": "Holland" },
-{"question":"What is the coldest place on Earth?", "answersList": [ "Antarctica", "Iceland", "Africa", "Switzerland"], "answer": "Antartica"},
+{"question":"What is the coldest place on Earth?", "answersList": [ "Antarctica", "Iceland", "Africa", "Switzerland"], "answer": "Antarctica"},
 {"question":"What is the official currency of the United Kingdom?","answersList": ["Pound Sterling", "Euro", "Dollar", "Dirham"], "answer": "Pound Sterling"}]
