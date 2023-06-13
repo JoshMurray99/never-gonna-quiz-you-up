@@ -16,7 +16,7 @@ function questionSelection() {
      subject = 'History'
 }
 console.log(subject)
-module.exports = {input, subject}
+ module.exports = {input, subject}
 
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
@@ -54,3 +54,5 @@ function updateLeaderboard(data, subject) {
         histLeaderboard.children[0].childNodes[5].textContent = `${data[2].name} - ${data[2].score}`;
     }
 }
+
+
