@@ -1,3 +1,5 @@
+import {input, subject} from './index.js'
+
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
@@ -6,11 +8,12 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 
 let currentQuestionIndex=0
 
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', () => startGame(subject));
 
 
-async function startGame() {
-const questions= await fetch(`http://localhost:3000/geography`) //need to put in random function here rather than backend
+
+async function startGame(subject) {
+const questions= await fetch(`http://localhost:3000/${subject}`)
     
 const data=await questions.json()
 

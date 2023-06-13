@@ -10,14 +10,14 @@ function createUser() {
 
 
 
-let subject = 'Geography'
+let subject = 'geography'
 
 function questionSelection() {
      subject = 'History'
 }
-console.log(subject)
-module.exports = {input, subject}
 
+
+export {input,subject}
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
 const histLeaderboard = document.querySelector("#histLeaderboard");
