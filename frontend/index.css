@@ -123,6 +123,8 @@ figure {
     margin: 24px 0;
     width: 70%;
     height: 40%;
+
+
 }
 
 .leaderboard__header {
@@ -147,4 +149,11 @@ figure {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#geoLeaderboard, #histLeaderboard {
+    font-size: 25px;
+    text-align: center;
+   
+    
 }
