@@ -1,4 +1,6 @@
-let input = localStorage.getItem('input')
+ let input = localStorage.getItem('input')
+ let btn = document.querySelector('button')
+let header = document.querySelector('.user')
 
 function createUser() {
   input = document.getElementById("userInput").value
@@ -10,11 +12,25 @@ function createUser() {
 
 
 
+
+btn.addEventListener('click', createUser())
+
+header.addEventListener('click', (e) => {
+   header.innerHTML = input
+}) 
+
+btn.addEventListener('click', () => {
+    header.click()
+})
+
 let subject = 'Geography'
 
 function questionSelection() {
      subject = 'History'
 }
+
+console.log(subject)
+
 
 
 
