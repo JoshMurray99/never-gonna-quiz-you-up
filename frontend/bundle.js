@@ -60,6 +60,7 @@ const countDown = setInterval(() => {
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
     answerButtonsElement.childNodes.forEach((element)=>{
+      if (timeSecond ==0)
        element.classList.add('incorrect')
        element.removeEventListener('click',selectAnswer)
        } ) 
