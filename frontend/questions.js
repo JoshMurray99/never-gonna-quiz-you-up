@@ -3,11 +3,32 @@
 
 
 async function getInput () {
-  const fetchy= await fetch(`http://localhost:3000/intermediary`)
-  const data=await fetchy.json()
+  const fetchy= await fetch(`http://localhost:3000/intermediary`);
+  //const scoreFetch = await fetch(`http://localhost:3000/history/leaderboard`);
+  const data=await fetchy.json();
+  //const leaderboard=await scoreFetch.json();
   let input=data[0].name
   let subject=data[1].subject
-  let highScore=0
+  let highScore = 0
+  console.log(data);
+  //console.log(leaderboard);
+  
+  const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
+  const leaderboard = await scoreFetch.json()
+  console.log(leaderboard);
+  const userHighScores = leaderboard.filter(user => user.name == input);
+  if (!userHighScores.length) {
+    highScore = 0;
+  } else {
+    let highScore = userHighScores[0]
+    for (let i=0; i<userHighScores.length; i++) {
+      if (userHighScores[i]>highScore) {
+        highScore = userHighScores[i];
+      }
+    }
+  }
+
+  //console.log(highScore)
   console.log(data)
   console.log(input)
   thing(input, subject, highScore)
