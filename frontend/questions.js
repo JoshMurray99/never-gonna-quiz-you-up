@@ -1,12 +1,23 @@
 //import {input, subject} from './index.js'
 //console.log(input)
-let subject='geography'
-let input='Joshua'
-let highScore=0
+
 
 async function getInput () {
-  const input= await fetch(`http://localhost:3000/${subject}`)
+  const fetchy= await fetch(`http://localhost:3000/intermediary`)
+  const data=await fetchy.json()
+  let input=data[0].name
+  let subject=data[1].subject
+  let highScore=0
+  console.log(data)
+  console.log(input)
+  thing(input, subject, highScore)
 }
+
+getInput()
+
+
+function thing (input, subject, highScore){
+
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
@@ -170,5 +181,5 @@ async function sendScores(name, score, subject) {
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
 } 
-
+}
 
