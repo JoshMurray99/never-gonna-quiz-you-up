@@ -86,6 +86,7 @@ function writeFileError(error) {
     if (error) {
         res.sendStatus(400);
         console.log(error);
+        console.log("error")
     }
 }
 
