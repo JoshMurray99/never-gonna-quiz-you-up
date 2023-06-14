@@ -1,4 +1,8 @@
-import {input, subject} from './index.js'
+//import {input, subject} from './index.js'
+//console.log(input)
+let subject='geography'
+let input='Joshua'
+let highScore=0
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
@@ -8,6 +12,15 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
+
+const userName=document.getElementById('userName')
+const scoreElement=document.getElementById('score')
+userName.classList.add('userName') 
+userName.textContent=input  //input
+scoreElement.textContent="High score: " + highScore
+
+let score
+
 
 startButton.addEventListener('click', () => startGame());
 
@@ -19,6 +32,9 @@ const questions= await fetch(`http://localhost:3000/geography`)
 const data=await questions.json()
   startButton.classList.add('hide')
   currentQuestionIndex = 0
+  score = 0
+  //add in username and score
+  scoreElement.textContent="Score: " +score
   questionContainerElement.classList.remove('hide')
   answerButtonsElement.classList.remove('hide')
   questionElement.classList.remove('hide')
@@ -60,11 +76,7 @@ function setNextQuestion(data) {
   displayQuestion(data)
 }
 
-//async function chooseSubject (subject) {
-  //  const questions= await fetch(`http://localhost:3000/${subject}`)
-  //  if(questions.ok){
-  //      return startGame()
-   // }
+
 function displayQuestion(data){
     
 
@@ -96,6 +108,11 @@ function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   beenClicked = true
+  if(correct){
+    score+=10
+    scoreElement.textContent="Score: " + score
+  }
+
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -106,6 +123,14 @@ function selectAnswer(e) {
 } else {
   startButton.innerText = 'Restart'
   startButton.classList.remove('hide')
+  if(score>highScore){
+  document.getElementById('score').textContent="End of quiz, new high score!: " +score
+  document.getElementById('highScore').textContent="Your high score is: "+score
+  } else{
+    document.getElementById('score').textContent="End of quiz, your score was: " +score
+    document.getElementById('highScore').textContent="Your high score is: "+highScore
+  }
+  
   }
 }
 
