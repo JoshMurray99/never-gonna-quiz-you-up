@@ -29,7 +29,7 @@ startButton.addEventListener('click', () => startGame());
 
 
 async function startGame() {
-const questions= await fetch(`http://localhost:3000/geography`)   
+const questions= await fetch(`http://localhost:3000/${subject}`)   
 const data=await questions.json()
   startButton.classList.add('hide')
   currentQuestionIndex = 0
@@ -58,18 +58,23 @@ function timer(timeSecond) {
 const countDown = setInterval(() => {
   timeSecond--;
   timeElement.innerHTML = timeSecond + " seconds left"
+  
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
     // answerButtonsElement.children.forEach((element)=>{
     //     element.removeEventListener("click",selectAnswer)
     //   } ) 
     timeElement.textContent ="Time up!";
-    nextButton.classList.remove('hide')
-
+    if(15 > currentQuestionIndex + 1) {
+      nextButton.classList.remove('hide')
+    } else {
+      startButton.innerText = 'Restart'
+      startButton.classList.remove('hide')
+    }
   }
-  
 
-},1000)}
+},1000)
+}
 
 function setNextQuestion(data) {
   timer(30)
