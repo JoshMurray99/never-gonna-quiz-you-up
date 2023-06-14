@@ -1,7 +1,8 @@
 //let input = localStorage.getItem('input')
 let input;
-async function createUser() {
+async function createUser(e) {
   //localStorage.setItem('input', input)
+  e.preventDefault()
   input = document.getElementById("userInput").value
   const displayUser= document.getElementById('user')
   displayUser.innerText = input;
@@ -21,9 +22,7 @@ async function createUser() {
 const submit=document.querySelector('button')
 submit.addEventListener('click', createUser)
 
-
-
-//let subject = 'Geography'
+let subject = 'geography'
 
 function questionSelection() {
      subject = 'History'
