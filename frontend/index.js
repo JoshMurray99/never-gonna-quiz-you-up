@@ -1,7 +1,8 @@
 //let input = localStorage.getItem('input')
 let input;
-async function createUser() {
+async function createUser(e) {
   //localStorage.setItem('input', input)
+  e.preventDefault()
   input = document.getElementById("userInput").value
   const displayUser= document.getElementById('user')
   displayUser.innerText = input;
@@ -21,7 +22,24 @@ async function createUser() {
 const submit=document.querySelector('button')
 submit.addEventListener('click', createUser)
 
-let subject = 'geography'
+
+let subject;
+async function selectSubject(subject) {
+    e.preventDefault()
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    const response= await fetch(`http://localhost:3000/intermediary-subject/${subject}`, options)
+    console.log(response)
+}
+
+const geographyButton=document.querySelector('.subject geography')
+const historyButton=document.querySelector('.subject history')
+geographyButton.addEventListener('click', selectSubject('geography'))
+historyButton.addEventListener('click', selectSubject('history'))
 
 function questionSelection() {
      subject = 'History'
