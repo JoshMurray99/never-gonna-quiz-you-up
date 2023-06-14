@@ -1,7 +1,7 @@
 //import {input, subject} from './index.js'
 //console.log(input)
 let subject='history'
-let input='Joshua'
+let input= ''
 let highScore=0
 
 async function getInput () {

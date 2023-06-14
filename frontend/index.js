@@ -23,11 +23,14 @@ submit.addEventListener('click', createUser)
 
 
 
-let subject = 'Geography'
+//let subject = 'Geography'
 
 function questionSelection() {
      subject = 'History'
+     console.log(subject)
 }
+
+
 
 console.log(subject)
 
