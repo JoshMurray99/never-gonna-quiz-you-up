@@ -72,7 +72,7 @@ const countDown = setInterval(() => {
 },1000)}
 
 function setNextQuestion(data) {
-  timer(10)
+  timer(30)
   resetState()
   displayQuestion(data)
 }
