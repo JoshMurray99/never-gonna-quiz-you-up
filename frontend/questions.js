@@ -4,6 +4,10 @@ let subject='geography'
 let input='Joshua'
 let highScore=0
 
+async function getInput () {
+  const input= await fetch(`http://localhost:3000/${subject}`)
+}
+
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
