@@ -3,17 +3,30 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+let timeSecond = 30;
+const timeElement = document.querySelector('#countdown-number');
 
 let currentQuestionIndex=0
 
 startButton.addEventListener('click', startGame)
 
+function countDown () {
+    timeSecond--;
+    timeElement.innerHTML = timeSecond + " seconds left"
+    if (timeSecond<= 0 || timeSecond <1) {
+        clearInterval(countDown)
+        timeElement.textContent ="Time up!";
+        nextButton.classList.remove('hide')
+    }
+}
+
 
 async function startGame() {
+
 const questions= await fetch(`http://localhost:3000/geography`) //need to put in random function here rather than backend
     
 const data=await questions.json()
-
+timer = setInterval (countDown,1000)
   startButton.classList.add('hide')
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
@@ -22,6 +35,7 @@ const data=await questions.json()
   nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion(data)
+    
   })
   setNextQuestion(data)
 }
