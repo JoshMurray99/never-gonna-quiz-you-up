@@ -97,6 +97,7 @@ function selectAnswer(e) {
   if(score>highScore){
   document.getElementById('score').textContent="End of quiz, new high score!: " +score
   document.getElementById('highScore').textContent="Your high score is: "+score
+  sendScores(input, score, subject);
   } else{
     document.getElementById('score').textContent="End of quiz, your score was: " +score
     document.getElementById('highScore').textContent="Your high score is: "+highScore
@@ -119,6 +120,17 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-    
+async function sendScores(name, score, subject) {
+    const data = {"name":name, "score":score};
+    const options = {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    }
+
+    const resp = await fetch(`http://localhost:3000/${subject}`, options);
+} 
 
 
