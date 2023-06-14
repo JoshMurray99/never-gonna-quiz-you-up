@@ -5,11 +5,15 @@ let subject='geography'
 let input='Joshua'
 let highScore=0
 
+async function getInput () {
+  const input= await fetch(`http://localhost:3000/${subject}`)
+}
+
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+const answerButtonsElement = document.querySelector('.answer-grid')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -55,14 +59,19 @@ const data=await questions.json()
 
 }
 function timer(timeSecond) {
+  // const buttons= answerButtonsElement.children
+  // function changeButtonColor(){buttons.forEach(button =>{
+  //    button.classList.add("incorrect")
+  //    button.removeEventListener('click',selectAnswer)
+  // })}
 const countDown = setInterval(() => {
   timeSecond--;
   timeElement.innerHTML = timeSecond + " seconds left"
-  
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
     // answerButtonsElement.children.forEach((element)=>{
-    //     element.removeEventListener("click",selectAnswer)
+    //   element.classList.add('incorrect')
+    
     //   } ) 
     timeElement.textContent ="Time up!";
     if(15 > currentQuestionIndex + 1) {
@@ -71,13 +80,14 @@ const countDown = setInterval(() => {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
+    setTimeout(changeButtonColor,1000)
   }
 
 },1000)
 }
 
 function setNextQuestion(data) {
-  timer(30)
+  timer(10)
   resetState()
   displayQuestion(data)
 }
@@ -132,6 +142,7 @@ function selectAnswer(e) {
   if(score>highScore){
   document.getElementById('score').textContent="End of quiz, new high score!: " +score
   document.getElementById('highScore').textContent="Your high score is: "+score
+  sendScores(input, score, subject);
   } else{
     document.getElementById('score').textContent="End of quiz, your score was: " +score
     document.getElementById('highScore').textContent="Your high score is: "+highScore
@@ -154,7 +165,18 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-    
+async function sendScores(name, score, subject) {
+    const data = {"name":name, "score":score};
+    const options = {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    }
+
+    const resp = await fetch(`http://localhost:3000/${subject}`, options);
+} 
 
 
 
