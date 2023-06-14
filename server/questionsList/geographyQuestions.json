@@ -17,5 +17,9 @@
 {"question":"Which London Underground line is represented as green on the tube map?","answersList": ["District Line", "Northern Line", "Piccadilly Line", "Victoria Line"], "answer": "District Line"},
 {"question":"In which country would you find Machu Picchu?","answersList": ["Poland", "Brazil", "Peru", "Spain"], "answer": "Peru"},
 {"question":"What is the biggest island in the world?","answersList": ["Iceland", "Newzealand", "Cananda", "Greenland"], "answer": "Greenland"},
-{"question":"Which country has the most pyramids in the world?","answersList": ["Sudan", "Morocco", "England", "Eygpt"], "answer": "Sudan"},{"question":"Which continent is in all four hemispheres?","answersList": ["Africa", "Asia", "Antarctica", "Europe"], "answer": "Africa"},{"question":"How many large islands make up Hawaii?","answersList": ["Eight", "Two", "Five", "One"], "answer": "Eight"}, {"question":"To which country do the Canary Islands belong?","answersList": ["Spain", "Germany", "Portugal", "Italy"], "answer": "Spain"},{"question":"What is the currency of Sweden?","answersList": ["Swedish Krona", "Euro", "Pound Sterling", "Dirham"], "answer": "Swedish Krona"},
+{"question":"Which country has the most pyramids in the world?","answersList": ["Sudan", "Morocco", "England", "Eygpt"], "answer": "Sudan"},
+{"question":"Which continent is in all four hemispheres?","answersList": ["Africa", "Asia", "Antarctica", "Europe"], "answer": "Africa"},
+{"question":"How many large islands make up Hawaii?","answersList": ["Eight", "Two", "Five", "One"], "answer": "Eight"},
+{"question":"To which country do the Canary Islands belong?","answersList": ["Spain", "Germany", "Portugal", "Italy"], "answer": "Spain"},
+{"question":"What is the currency of Sweden?","answersList": ["Swedish Krona", "Euro", "Pound Sterling", "Dirham"], "answer": "Swedish Krona"},
 {"question":"In which city would you find La Sagrada Familia?","answersList": ["Barcelona", "Madrid", "Porto", "Paris"], "answer": "Barcelona"}]

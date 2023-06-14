@@ -23,6 +23,10 @@ app.get('/:subject', (req, res) => {
         res.send(shuffleArr(histQuestions).slice(0, numQuestions));
     } else if (subject === 'geography') {
         res.send(shuffleArr(geoQuestions).slice(0, numQuestions));
+    } else if (subject == "intermediary"){
+        const name = require("./intermediary-name.json");
+        const subject = require("./intermediary-subject.json");
+        res.status(200).send([name, subject]);
     } else {
         res.sendStatus(404);
     }
@@ -58,6 +62,20 @@ app.post('/:subject', (req, res) => {
         res.sendStatus(409);
     }
 })
+
+app.post('/intermediary-name/:name', (req, res) => {
+    const name = req.params.name.toLowerCase();
+    fs.writeFile('./server/intermediary-name.json', JSON.stringify({name}), writeFileError);
+    res.sendStatus(200);
+})
+
+app.post('/intermediary-subject/:subject', (req, res) => {
+    const subject = req.params.subject.toLowerCase();
+    fs.writeFile('./server/intermediary-subject.json', JSON.stringify({subject}), writeFileError);
+    res.sendStatus(200);
+})
+
+
 
 
 
