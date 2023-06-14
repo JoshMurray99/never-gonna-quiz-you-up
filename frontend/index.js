@@ -1,10 +1,20 @@
 //let input = localStorage.getItem('input')
 let input;
-function createUser() {
+async function createUser() {
   //localStorage.setItem('input', input)
   input = document.getElementById("userInput").value
   const displayUser= document.getElementById('user')
   displayUser.innerText = input;
+
+  const options = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    }
+    //body: JSON.stringify(input)
+    }
+  const response=await fetch(`http://localhost:3000/intermediary-name/${input}`, options)
+  console.log(response)
 }
 
 //const displayUser= document.getElementById('user')
