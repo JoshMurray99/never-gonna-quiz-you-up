@@ -9,11 +9,11 @@ async function getInput () {
   const input= await fetch(`http://localhost:3000/${subject}`)
 }
 
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.querySelector('.answer-grid')
+const startButton = document.querySelector('#start-btn')
+const nextButton = document.querySelector('#next-btn')
+const questionContainerElement = document.querySelector('#question-container')
+const questionElement = document.querySelector('#question')
+const answerButtonsElement = document.querySelector('#answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -48,31 +48,21 @@ const data=await questions.json()
     currentQuestionIndex++
 
     setNextQuestion(data)
-    // const resetCountDown =() =>{
-    //   clearInterval(countDown);
-    //   timeSecond =30;
-    //   timeElement.innerHTML = timeSecond;
-    // }
   })
   
   setNextQuestion(data)
 
 }
 function timer(timeSecond) {
-  // const buttons= answerButtonsElement.children
-  // function changeButtonColor(){buttons.forEach(button =>{
-  //    button.classList.add("incorrect")
-  //    button.removeEventListener('click',selectAnswer)
-  // })}
 const countDown = setInterval(() => {
   timeSecond--;
   timeElement.innerHTML = timeSecond + " seconds left"
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
-    // answerButtonsElement.children.forEach((element)=>{
-    //   element.classList.add('incorrect')
-    
-    //   } ) 
+    answerButtonsElement.childNodes.forEach((element)=>{
+       element.classList.add('incorrect')
+       element.removeEventListener('click',selectAnswer)
+       } ) 
     timeElement.textContent ="Time up!";
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
@@ -80,14 +70,15 @@ const countDown = setInterval(() => {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
-    setTimeout(changeButtonColor,1000)
+  
   }
 
 },1000)
 }
 
 function setNextQuestion(data) {
-  timer(10)
+  //set timer
+  timer(30)
   resetState()
   displayQuestion(data)
 }
