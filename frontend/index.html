@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz homepage</title>
     <link rel="stylesheet" href="index.css" />
-    <script defer src="index.js" ></script>
+    <script defer src="index.js" type="module"></script>
   </head>
   <body>
     <nav>
@@ -15,9 +15,9 @@
             type="text"
             placeholder="Enter username here"
             />
-            <button onclick="createUser()">Submit</button>
+            <button>Submit</button>
             <h2>Username:</h2>
-            <h2 class="user"></h2>
+            <h2 id="user"></h2>
     </nav>
     <body id="body">
       <h1 class="title">Quiz it up!</h1>
@@ -49,59 +49,6 @@
             <div class="leaderboard__header">
               <h3 class="leaderboard__title">Geography Leaderboard</h3>
             </div>
-            <div class="players">
-              <ol>
-                <li></li>
-              </ol>
-            </div>
-          </div>
-          <div class="leaderboard">
-            <div class="leaderboard__header">
-              <h3 class="leaderboard__title">History Leaderboard</h3>
-            </div>
-            <div class="players">
-              <ol>
-                <li></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </body>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz homepage</title>
-    <link rel="stylesheet" href="index.css" />
-    <script defer src="index.js"></script>
-  </head>
-  <body>
-    <nav>
-      <button>
-        <a href="">Login</a>
-      </button>
-    </nav>
-    <body id="body">
-      <h1 class="title">Quiz it up!</h1>
-      <div class="quiz">
-        <div class="subjects">
-          <div class="subject geography">
-            <a class="subject__title" href="">Geography</a>
-          </div>
-          <div class="subject history">
-            <a class="subject__title" href="">History</a>
-          </div>
-        </div>
-        <div class="leaderboards">
-        <div class="leaderboard">
-          <div class="leaderboard__header">
-            <h3 class="leaderboard__title"> Geography Leaderboard</h3>
-          </div>
           <div class="players" id="geoLeaderboard">
             <ol>
               <li></li>
