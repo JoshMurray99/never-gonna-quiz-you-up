@@ -1,6 +1,6 @@
 //import {input, subject} from './index.js'
 //console.log(input)
-let subject='geography'
+let subject='history'
 let input='Joshua'
 let highScore=0
 
