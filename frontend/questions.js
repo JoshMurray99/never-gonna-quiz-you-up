@@ -13,17 +13,11 @@ async function getInput () {
   thing(input, subject, highScore)
 }
 
-getInput()
-
-
-function thing (input, subject, highScore){
-
-
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+const startButton = document.querySelector('#start-btn')
+const nextButton = document.querySelector('#next-btn')
+const questionContainerElement = document.querySelector('#question-container')
+const questionElement = document.querySelector('#question')
+const answerButtonsElement = document.querySelector('#answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -58,11 +52,6 @@ const data=await questions.json()
     currentQuestionIndex++
 
     setNextQuestion(data)
-    // const resetCountDown =() =>{
-    //   clearInterval(countDown);
-    //   timeSecond =30;
-    //   timeElement.innerHTML = timeSecond;
-    // }
   })
   
   setNextQuestion(data)
@@ -72,12 +61,13 @@ function timer(timeSecond) {
 const countDown = setInterval(() => {
   timeSecond--;
   timeElement.innerHTML = timeSecond + " seconds left"
-  
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
-    // answerButtonsElement.children.forEach((element)=>{
-    //     element.removeEventListener("click",selectAnswer)
-    //   } ) 
+    answerButtonsElement.childNodes.forEach((element)=>{
+      if (timeSecond ==0)
+       element.classList.add('incorrect')
+       element.removeEventListener('click',selectAnswer)
+       } ) 
     timeElement.textContent ="Time up!";
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
@@ -85,12 +75,14 @@ const countDown = setInterval(() => {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
+  
   }
 
 },1000)
 }
 
 function setNextQuestion(data) {
+  //set timer
   timer(30)
   resetState()
   displayQuestion(data)
@@ -181,5 +173,5 @@ async function sendScores(name, score, subject) {
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
 } 
-}
+
 

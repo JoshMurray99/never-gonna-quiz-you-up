@@ -1,15 +1,24 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 //import {input, subject} from './index.js'
 //console.log(input)
-let subject='geography'
-let input='Joshua'
-let highScore=0
 
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+
+async function getInput () {
+  const fetchy= await fetch(`http://localhost:3000/intermediary`)
+  const data=await fetchy.json()
+  let input=data[0].name
+  let subject=data[1].subject
+  let highScore=0
+  console.log(data)
+  console.log(input)
+  thing(input, subject, highScore)
+}
+
+const startButton = document.querySelector('#start-btn')
+const nextButton = document.querySelector('#next-btn')
+const questionContainerElement = document.querySelector('#question-container')
+const questionElement = document.querySelector('#question')
+const answerButtonsElement = document.querySelector('#answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -44,11 +53,6 @@ const data=await questions.json()
     currentQuestionIndex++
 
     setNextQuestion(data)
-    // const resetCountDown =() =>{
-    //   clearInterval(countDown);
-    //   timeSecond =30;
-    //   timeElement.innerHTML = timeSecond;
-    // }
   })
   
   setNextQuestion(data)
@@ -58,12 +62,13 @@ function timer(timeSecond) {
 const countDown = setInterval(() => {
   timeSecond--;
   timeElement.innerHTML = timeSecond + " seconds left"
-  
   if (timeSecond<= 0 || timeSecond <1||beenClicked) {
     clearInterval(countDown)
-    // answerButtonsElement.children.forEach((element)=>{
-    //     element.removeEventListener("click",selectAnswer)
-    //   } ) 
+    answerButtonsElement.childNodes.forEach((element)=>{
+      if (timeSecond ==0)
+       element.classList.add('incorrect')
+       element.removeEventListener('click',selectAnswer)
+       } ) 
     timeElement.textContent ="Time up!";
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
@@ -71,12 +76,14 @@ const countDown = setInterval(() => {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
+  
   }
 
 },1000)
 }
 
 function setNextQuestion(data) {
+  //set timer
   timer(30)
   resetState()
   displayQuestion(data)
@@ -132,6 +139,7 @@ function selectAnswer(e) {
   if(score>highScore){
   document.getElementById('score').textContent="End of quiz, new high score!: " +score
   document.getElementById('highScore').textContent="Your high score is: "+score
+  sendScores(input, score, subject);
   } else{
     document.getElementById('score').textContent="End of quiz, your score was: " +score
     document.getElementById('highScore').textContent="Your high score is: "+highScore
@@ -154,7 +162,18 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-    
+async function sendScores(name, score, subject) {
+    const data = {"name":name, "score":score};
+    const options = {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    }
+
+    const resp = await fetch(`http://localhost:3000/${subject}`, options);
+} 
 
 
 
