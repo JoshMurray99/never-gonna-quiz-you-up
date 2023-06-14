@@ -1,14 +1,15 @@
-let input = localStorage.getItem('input')
-
+//let input = localStorage.getItem('input')
+let input;
 function createUser() {
+  //localStorage.setItem('input', input)
   input = document.getElementById("userInput").value
-  localStorage.setItem('input', input)
-  document.querySelector('.user').innerHTML = input;
-  console.log(input)
+  const displayUser= document.getElementById('user')
+  displayUser.innerText = input;
 }
 
-
-
+//const displayUser= document.getElementById('user')
+const submit=document.querySelector('button')
+submit.addEventListener('click', createUser)
 
 let subject = 'geography'
 
@@ -16,8 +17,7 @@ function questionSelection() {
      subject = 'History'
 }
 
-
-export {input,subject}
+export{input,subject}
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
 const histLeaderboard = document.querySelector("#histLeaderboard");
