@@ -62,6 +62,8 @@ function thing(input, subject, highScore) {
     const questions = await fetch(`http://localhost:3000/${subject}`);
     data = await questions.json(); // Assign data from API response
     startButton.classList.add('hide');
+    let returnHome = document.getElementById('return-to-home')
+    returnHome.classList.add('hide')//
     currentQuestionIndex = 0;
     score = 0;
     scoreElement.textContent = "Score: " + score;
@@ -157,7 +159,7 @@ function thing(input, subject, highScore) {
     } else {
       startButton.innerText = 'Restart';
       startButton.classList.remove('hide');
-      const returnHome = document.getElementById('return-to-home');
+      let returnHome = document.getElementById('return-to-home');
       returnHome.classList.remove('hide');
       returnHome.addEventListener('click', () => {
         window.location.href = 'index.html';
