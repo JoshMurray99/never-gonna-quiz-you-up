@@ -2,16 +2,27 @@
 //console.log(input)
 
 
-async function getInput(attempts = 3) {
+async function getInput () {
   try {
-    const fetchy = await fetch('http://localhost:3000/intermediary');
-    const data = await fetchy.json();
-    let input = data[0].name;
-    let subject = data[1].subject;
+  const fetchy = await fetch(`http://localhost:3000/intermediary`)
+  const data = await fetchy.json()
+  let input = data[0].name
+  let subject = data[1].subject
+  
+  let highScore = 0
+
+  const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
+  const leaderboard = await scoreFetch.json()
+
+  const userHighScores = leaderboard.filter(user => user.name == input);
+
+  if (!userHighScores.length) {
     let highScore = 0;
-    console.log(data);
-    console.log(input);
-    thing(input, subject, highScore);
+  } else {
+    let highScore = userHighScores[0].score;
+  }
+  
+  thing(input, subject, highScore)
   } catch (error) {
     if (attempts <= 0) {
       console.error('Failed to fetch after multiple attempts');
@@ -189,7 +200,6 @@ async function sendScores(name, score, subject) {
     }
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
-  }
 } 
-
+}
 
