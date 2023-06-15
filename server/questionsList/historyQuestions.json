@@ -1,4 +1,4 @@
-[{"question":"In which year did WWII start?", "answersList":["1914", "1918", "1939", "1945"], "answer":"1939"},
+[{"question":"In which year did WWII start?", "answersList":[1914, 1918, 1939, 1945], "answer":"1939"},
 {"question":"In which country was Adolf Hitler born?", "answersList":["Germany", "Austria", "Switzerland", "France"], "answer":"Austria"},
 {"question":"Who was the first president of America?", "answersList":["Thomas Jefferson", "John Adams", "George Washington", "Abraham Lincoln"], "answer":"George Washington"},
 {"question":"In which year was American president John F. Kennedy assassinated?", "answersList":[1963, 1964, 1965, 1969], "answer":"1963"},
