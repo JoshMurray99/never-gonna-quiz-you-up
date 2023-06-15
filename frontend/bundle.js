@@ -3,16 +3,16 @@
 //console.log(input)
 
 
-async function getInput () {
-  const fetchy= await fetch(`http://localhost:3000/intermediary`)
-  const data=await fetchy.json()
-  let input=data[0].name
-  let subject=data[1].subject
-  let highScore=0
-  console.log(data)
-  console.log(input)
-  thing(input, subject, highScore)
-}
+// async function getInput () {
+//   const fetchy= await fetch(`http://localhost:3000/intermediary`)
+//   const data=await fetchy.json()
+//   let input=data[0].name
+//   let subject=data[1].subject
+//   let highScore=0
+//   console.log(data)
+//   console.log(input)
+//   thing(input, subject, highScore)
+// }
 
 const startButton = document.querySelector('#start-btn')
 const nextButton = document.querySelector('#next-btn')
@@ -26,9 +26,10 @@ let currentQuestionIndex=0
 const userName=document.getElementById('userName')
 const scoreElement=document.getElementById('score')
 userName.classList.add('userName') 
-userName.textContent=input  //input
+//userName.textContent=input  //input
 scoreElement.textContent="High score: " + highScore
-
+let subject = "geography"
+let input = "josh"
 let score
 
 

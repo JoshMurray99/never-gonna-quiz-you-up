@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 li {
@@ -31,7 +31,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 12px;
-    background-color: rgba(193, 214, 3, 0.87);
+    background-color: #FFE70C;
 }
 
 
@@ -108,7 +108,7 @@ figure {
 }
 
 .history {
-    background-color: rgba(22, 160, 206, 0.671);
+    background-color: #4CDFD7;
 }
 
 .art {
