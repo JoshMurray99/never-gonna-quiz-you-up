@@ -1,6 +1,7 @@
 //import {input, subject} from './index.js'
 //console.log(input)
-
+input = 'Kieran',
+subject = "geography"
 
 async function getInput () {
   const fetchy= await fetch(`http://localhost:3000/intermediary`)

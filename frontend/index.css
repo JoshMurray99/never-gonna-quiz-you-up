@@ -123,7 +123,7 @@ figure {
     margin: 24px 0;
     width: 70%;
     height: 40%;
-
+   border: 1px solid gray;
 
 }
 
@@ -131,15 +131,17 @@ figure {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(226, 240, 237, 0.651);
     height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 .leaderboard__title {
     font-size: 20px;
+    font-weight: bold;
+    color: silver;
 }
 
 .leaderboards {
@@ -154,6 +156,5 @@ figure {
 #geoLeaderboard, #histLeaderboard {
     font-size: 25px;
     text-align: center;
-   
-    
 }
+
