@@ -20,55 +20,67 @@
             <h2 id="user"></h2>
     </nav>
     <body id="body">
-      <h1 class="title">Quiz it up!</h1>
+      <div class="homepage">
       <div class="quiz">
+        <h1 class="title">Quiz it up!</h1>
         <div class="subjects">
           <div class="subject geography">
             <figure class="img__wrapper">
-              <img class="img" src="../assets/planet.png" alt="picture of a planet">
+              <img class="img" src="../assets/planet.png" alt="">
             </figure>
             <a class="subject__title" href="questions.html" onclick="questionSelection()">Geography</a>
             <figure class="img__wrapper">
-              <img class="img" src="../assets/planet.png" alt="picture of a planet">
+              <img class="img" src="../assets/planet.png" alt="">
             </figure>
           </div>
           <div class="subject history">
             <figure class="img__wrapper--history">
-              <img class="img__history" src="../assets/history-man.png" alt="picture of an old man">
+              <img class="img__history" src="../assets/history-man.png" alt="picture of planet">
             </figure>
-            <a class="subject__title" href="questions.html" onclick="questionSelection()">History</a>
+            <a class="subject__title" href="questions.html">History</a>
             <figure class="img__wrapper--history">
-              <img class="img__history" src="../assets/history-man.png" alt="picture of an old man">
+              <img class="img__history" src="../assets/history-man.png" alt="picture of old">
             </figure>
           </div>
         </div>
+      </div>
         <div class="leaderboards">
+          <div class="leaderboard__header">
+            <h3 class="leaderboard__title">Geography Leaderboard</h3>
+          </div>
           <div class="leaderboard">
-            <div class="leaderboard__header">
-              <h3 class="leaderboard__title">Geography Leaderboard</h3>
-            </div>
           <div class="players" id="geoLeaderboard">
-            <ol>
+              <div class="positions">
+                  <div class="one">1</div>
+                  <div class="two">2</div>
+                  <div class="three">3</div>
+              </div>
+            <ol class="player__list">
               <li></li>
               <li></li>
               <li></li>
             </ol>
           </div>
+        </div>
+        <div class="leaderboard__header--history">
+          <h3 class="leaderboard__title">History Leaderboard</h3>
         </div>
         <div class="leaderboard">
-          <div class="leaderboard__header">
-            <h3 class="leaderboard__title"> History Leaderboard</h3>
-          </div>
-          <div class="players" id="histLeaderboard">
-            <ol>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
-          </div>
+        <div class="players" id="histLeaderboard">
+            <div class="positions">
+                <div class="one">1</div>
+                <div class="two">2</div>
+                <div class="three">3</div>
+            </div>
+          <ol class="player__list">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
         </div>
-    </div>
       </div>
+    </div>
+    </div>
     </body>
   </body>
 </html>

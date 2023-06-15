@@ -7,10 +7,6 @@
     font-family: 'Kanit', sans-serif;
 }
 
-li {
-    list-style-type: none;
-}
-
 
 a {
     text-decoration: none;
@@ -24,19 +20,27 @@ button {
 /* NAV */
 
 nav {
-    height: 100px;
+    height: 95px;
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 24px;
     display: flex;
     align-items: center;
     padding: 0 12px;
+<<<<<<< HEAD
     background-color: #FFE70C;
+=======
+    background-color: #ffe70c;
+>>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc
 }
 
 
 
 /* BODY */
+
+.homepage {
+    display: flex;
+    flex-direction: row;
+}
 
 .title {
     font-size: 72px;
@@ -46,8 +50,8 @@ nav {
 
 .quiz {
     display: flex;
-    justify-content: space-around;
-    height: 62vh;
+    flex-direction: column;
+    width: 50%;
 }
 
 figure {
@@ -72,7 +76,7 @@ figure {
 }
 
 .subjects {
-    width: 55%;
+    width: 95%;
     margin: 18px;
     display: flex;
     flex-direction: column;
@@ -82,11 +86,14 @@ figure {
 .subject {
     width: 100%;
     height: 100px;
-    margin: 12px 0px;
+    margin: 40px 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     transition: all 300ms ease;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.596)
+    
 }
 
 .subject:hover {
@@ -111,36 +118,35 @@ figure {
     background-color: #4CDFD7;
 }
 
-.art {
-    background-color: rgba(0, 0, 255, 0.685);
-}
+
 
 
 /* LEADERBOARD */
 
+li {
+    list-style-type: none;
+    font-size: 20px;
+}
+
 .leaderboard {
-    background-color: rgba(128, 0, 128, 0.726);
-    margin: 24px 0;
-    width: 70%;
+    background-color: rgba(128, 0, 128, 0.61);
+    margin-bottom: 20px;
+    width: 60%;
     height: 40%;
-
-
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
+    
 }
 
-.leaderboard__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(226, 240, 237, 0.651);
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .leaderboard__title {
     font-size: 20px;
+    font-weight: bold;
+    color: white
 }
+
+
 
 .leaderboards {
     width: 50%;
@@ -152,8 +158,79 @@ figure {
 }
 
 #geoLeaderboard, #histLeaderboard {
-    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#histLeaderboard {
+    background-color: rgba(255, 0, 0, 0.514);
+    border-radius: 25px;
+}
+
+.positions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.one, .two, .three {
+    padding: 4px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+    margin: 16px 8px;
     text-align: center;
-   
+    font-size: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699)
+}
+
+.one {
+    background-color: gold;
+    color: white;
+}
+
+.two {
+    background-color: silver;
+    color: white;
+}
+
+.three {
+    background-color: brown;
+    color: white;
+}
+
+ol {
+    height: 186px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.leaderboard__header, .leaderboard__header--history {
+    background-color: rgba(252, 3, 252, 0.521);;
+    padding: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px
+}
+
+.leaderboard__header--history {
+    background-color: rgba(255, 0, 0, 0.514);
+}
+
+li {
+    background-color: rgba(252, 3, 252, 0.747);
+    border-radius: 25px;
+    padding: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
+    font-weight: bold;
+    color: wheat;
+    font-size: 20px;
     
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc
