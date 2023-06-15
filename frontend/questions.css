@@ -19,6 +19,7 @@
   padding:10px;
   width: 60vw;
   margin:20px auto;
+  color: white;
 }
 
 #question{
@@ -42,11 +43,10 @@ height:40vh;
 display:grid;
 grid-template-columns: repeat(2, 1fr);
 gap: 20px;
-color: white;
 }
 
 .btn {
-  background-color: blue;
+  background-color: #4CDFD7;
   padding: 10px;
   font-size:x-large;
   border: 1px solid;
@@ -58,7 +58,7 @@ color: white;
 }
 
 .btn.correct {
-  background-color: green;
+  background-color:rgba(11, 209, 11, 0.795);
 }
 
 .btn.incorrect {
@@ -103,16 +103,6 @@ color: white;
 display: none;
 }
 
-nav {
-  height: 100px;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    background-color: #FFE70C;
-}
 
 .username-container {
   height: 100px;
@@ -143,5 +133,6 @@ nav {
 #highScore {
   text-align: center;
   background-color:#FFE70C ;
+  justify-content: right;
 }
 

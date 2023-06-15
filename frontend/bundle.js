@@ -167,11 +167,11 @@ function selectAnswer(e) {
   startButton.innerText = 'Restart'
   startButton.classList.remove('hide')
   if(score>highScore){
-  document.getElementById('score').textContent="End of quiz, new high score!: " +score
+  alert("End of quiz, new high score!: " +score)
   document.getElementById('highScore').textContent="Your high score is: "+score
   sendScores(input, score, subject);
   } else{
-    document.getElementById('score').textContent="End of quiz, your score was: " +score
+    alert("End of quiz, your score was: " +score)
     document.getElementById('highScore').textContent="Your high score is: "+highScore
   }
   
