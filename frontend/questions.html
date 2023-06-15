@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <script src="questions.js" defer type="module"></script>
+    <link rel="stylesheet" href="questions.css">
+</head>
+<body>
+    <h1 id="question" class="hide">What is the capital city of Poland? </h1>
+    <div id="question-container" class="hide">
+        
+        <!--add in a timer-->
+    
+    <div id="answer-buttons" class="answer-grid">
+        <button class="btn">Answer A </button>
+        <button class="btn">Answer B</button>
+        <button class="btn">Answer C</button>
+        <button class="btn">Answer D</button>
+      </div>
+    </div>
+
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Begin Quiz</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+        <button id="return-to-home" class="btn hide">Return to homepage</button>
+      </div>
+   
+    <div id="countdown">
+      <div id="countdown-number"></div>
+        
+    </div>
+
+    <div class="username-container">
+    <h2 id="userName"></h2>
+    <h3 id="score"></h3>
+    <h3 id="endQuiz"></h3>
+  </div>
+  <h3 id="highScore"></h3>
+</body>
+</html>
+
