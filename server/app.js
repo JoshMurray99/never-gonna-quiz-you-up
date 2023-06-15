@@ -24,24 +24,23 @@ app.get('/:subject', (req, res) => {
     } else if (subject === 'geography') {
         res.send(shuffleArr(geoQuestions).slice(0, numQuestions));
     } else if (subject == "intermediary"){
-        //const name = require("./intermediary-name.json");
-        //const subject = require("./intermediary-subject.json");
-
         fs.readFile("server/intermediary-name.json", "utf8",(error1, data1) => {
             if (error1) {
                 console.log(error1)
                 return
             }
+            console.log(data1);
             fs.readFile("server/intermediary-subject.json", "utf8", (error2, data2) => {
                 if (error2) {
                     console.log(error2)
                     return
                 }
-
+                console.log(data1);
+                //console.log(data);
                 res.status(200).send([JSON.parse(data1), JSON.parse(data2)]);
+                //return data
             })
         })
-
     } else {
         res.sendStatus(404);
     }

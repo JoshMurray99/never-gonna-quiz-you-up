@@ -25,7 +25,7 @@ submit.addEventListener('click', createUser)
 
 let subject;
 async function selectSubject(subject) {
-    e.preventDefault()
+    
     const options = {
         method: "POST",
         headers: {
@@ -36,16 +36,14 @@ async function selectSubject(subject) {
     console.log(response)
 }
 
-const geographyButton=document.querySelector('.subject geography')
-const historyButton=document.querySelector('.subject history')
-geographyButton.addEventListener('click', selectSubject('geography'))
-historyButton.addEventListener('click', selectSubject('history'))
+const geographyButton=document.querySelector('.subject.geography')
+const historyButton=document.querySelector('.subject.history')
+geographyButton.addEventListener('click', () => {
+    selectSubject('geography')})
+historyButton.addEventListener('click', () => {
+    selectSubject('history')})
 
-function questionSelection() {
-     subject = 'History'
-}
 
-export{input,subject}
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
 const histLeaderboard = document.querySelector("#histLeaderboard");
