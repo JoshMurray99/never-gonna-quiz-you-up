@@ -2,22 +2,33 @@
 //console.log(input)
 
 
-async function getInput () {
-  const fetchy= await fetch(`http://localhost:3000/intermediary`)
-  const data=await fetchy.json()
-  let input=data[0].name
-  let subject=data[1].subject
-  let highScore=0
-  console.log(data)
-  console.log(input)
-  thing(input, subject, highScore)
+async function getInput(attempts = 3) {
+  try {
+    const fetchy = await fetch('http://localhost:3000/intermediary');
+    const data = await fetchy.json();
+    let input = data[0].name;
+    let subject = data[1].subject;
+    let highScore = 0;
+    console.log(data);
+    console.log(input);
+    thing(input, subject, highScore);
+  } catch (error) {
+    if (attempts <= 0) {
+      console.error('Failed to fetch after multiple attempts');
+      return;
+    }
+    // Retry the request with a delay of 1 second
+    setTimeout(() => {
+      getInput(attempts - 1);
+    }, 1000);
+  }
 }
 
 getInput()
 
 
 function thing (input, subject, highScore){
-
+  
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
