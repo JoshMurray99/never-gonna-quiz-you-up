@@ -35,7 +35,6 @@ async function getInput (attempts=3) {
     }, 1000);
   }
 }
-
 getInput()
 
 
