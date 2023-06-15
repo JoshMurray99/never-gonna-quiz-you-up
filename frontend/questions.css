@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
-
-:root{
-  --background-color:rgb(247, 246, 248);
-  --box-color: rgb(253, 255, 255);
-}
-
 *{
-  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
   color:black;
   font-family: 'Kanit';
 }
+body{
+
+  
+}
+
 
 #question-container {
   display:flex;
@@ -20,18 +22,21 @@
   width: 60vw;
   margin:20px auto;
   color: white;
+  align-items: center;
+
 }
 
 #question{
   display: flex;
-  justify-content: space-around;
   align-items: center;
   color :black;
-  width:70vw;
-  height: 20vh;
+  width:750px;
+  height: 150px;
+  box-shadow: 4px 8px 16px rgba(0, 10, 0, 0.699);
   background-color: rgba(11, 209, 11, 0.795);
   margin: 20px auto;
   border-radius: 10px;
+  justify-content:center;
 }
 
 
@@ -39,7 +44,7 @@
 .answer-grid {
 margin: 20px auto;
 width:50vw;
-height:40vh;
+height:30vh;
 display:grid;
 grid-template-columns: repeat(2, 1fr);
 gap: 20px;
@@ -47,22 +52,20 @@ gap: 20px;
 
 .btn {
   background-color: #4CDFD7;
-  padding: 10px;
   font-size:x-large;
-  border: 1px solid;
   width: 25vw;
   height: 15vh;
+  box-shadow: 4px 8px 16px rgba(0, 10, 0, 0.699);
   border-radius: 10px;
-  outline: none;
   justify-content: center;
 }
 
 .btn.correct {
-  background-color:rgba(11, 209, 11, 0.795);
+  background-color:rgba(6, 248, 6, 0.795);
 }
 
 .btn.incorrect {
-  background-color: red;
+  background-color: rgb(255, 15, 15);
 }
 
 
@@ -74,6 +77,7 @@ gap: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 #next-btn {
@@ -87,13 +91,15 @@ gap: 20px;
 
 .countdown{
   animation: countdown 5s linear;
-  justify-content:right;
+  position: bottom;
+ 
  
 }
 
 #countdown-number {
   color: black;
   font-size: xx-large ;
+  position: bottom;
   
 }
 
@@ -105,28 +111,44 @@ display: none;
 
 
 .username-container {
-  height: 100px;
+  height: 80px;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
-    padding: 0 12px;
+    padding: 10px 12px;
     background-color: #FFE70C;
 }
 
 #userName{
-  margin-right: 30px;
+  margin-right: 10px;
   margin-left:30px;
+  justify-items: center;
+  align-items: center;
   color:black;
-  background-color:#FFE70C ;
+  font-size: 25px;
+  width: 160px;
+  height: 60px;
+  border-radius: 10px;
+  border-color: black;
+  background-color:White ;
+  box-shadow: 4px 4px 4px rgba(0, 10, 0, 0.699);
 }
 
 #score {
   margin-right: 30px;
-  margin-left:30px;
+  margin-left:10px;
+  justify-content: center;
+  align-items: center;
   color:black;
-  background-color:#FFE70C ;
+  font-size: 20px;
+  width: 160px;
+  height:60px;
+  border-radius: 10px;
+  border-color: black;
+  background-color:white ;
+  box-shadow: 4px 4px 4px rgba(0, 10, 0, 0.699);
 }
 
 
