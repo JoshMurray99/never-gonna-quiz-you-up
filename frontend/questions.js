@@ -8,15 +8,21 @@ async function getInput (attempts=3) {
   const data = await fetchy.json()
   let input = data[0].name
   let subject = data[1].subject
+  
   let highScore = 0
+
   const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
   const leaderboard = await scoreFetch.json()
+
+
   const userHighScores = leaderboard.filter(user => user.name == input);
+
   if (!userHighScores.length) {
     highScore = 0;
   } else {
     highScore = userHighScores[0].score;
   }
+  
   thing(input, subject, highScore)
   } catch (error) {
     if (attempts <= 0) {
@@ -90,14 +96,17 @@ const countDown = setInterval(() => {
        element.classList.add('incorrect')
        element.removeEventListener('click',selectAnswer)
        } ) 
-    timeElement.textContent ="Time up!";
+    
+    if (timeSecond < 1) {
+      timeElement.textContent ="Time up!";
+    }
+
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
     } else {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
-  
   }
 
 },1000)
@@ -105,7 +114,7 @@ const countDown = setInterval(() => {
 
 function setNextQuestion(data) {
   //set timer
-  timer(30)
+  timer(10)
   resetState()
   displayQuestion(data)
 }
@@ -143,7 +152,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   beenClicked = true
   if(correct){
-    score+=10
+    score+= 500 + 50 * (Number(timeElement.textContent.split(" ")[0]));
     scoreElement.textContent="Score: " + score
   }
 
@@ -194,7 +203,6 @@ async function sendScores(name, score, subject) {
     }
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
-  }
 } 
-
+}
 
