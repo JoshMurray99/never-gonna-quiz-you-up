@@ -82,30 +82,31 @@ function thing(input, subject, highScore) {
 
   function timer(timeSecond) {
     const countDown = setInterval(() => {
-      timeSecond--;
-      timeElement.innerHTML = timeSecond + " seconds left";
-      if (timeSecond <= 0 || timeSecond < 1 || beenClicked) {
-        clearInterval(countDown);
-        answerButtonsElement.childNodes.forEach((element) => {
-          if (timeSecond == 0)
-            element.classList.add('incorrect');
-          element.removeEventListener('click', selectAnswer);
-        });
-
-        if (timeSecond < 1) {
-          timeElement.textContent = "Time up!";
+      timeSecond -= 0.1;
+      timeSecond = Math.round(10*timeSecond)/10;
+      timeElement.innerHTML = timeSecond + " seconds left"
+      if (timeSecond<= 0.1 || /*timeSecond <1||*/beenClicked) {
+        clearInterval(countDown)
+        answerButtonsElement.childNodes.forEach((element)=>{
+          if (timeSecond ==0)
+           element.classList.add('incorrect')
+           element.removeEventListener('click',selectAnswer)
+           } ) 
+        
+        if (timeSecond <= 0.1) {
+          timeElement.textContent ="Time up!";
         }
-
-        if (15 > currentQuestionIndex + 1) {
-          nextButton.classList.remove('hide');
+    
+        if(15 > currentQuestionIndex + 1) {
+          nextButton.classList.remove('hide')
         } else {
-          startButton.innerText = 'Restart';
-          startButton.classList.remove('hide');
+          startButton.innerText = 'Restart'
+          startButton.classList.remove('hide')
         }
       }
-
-    }, 1000);
-  }
+    
+    },100)
+    }
 
   function setNextQuestion() {
     timer(10);
