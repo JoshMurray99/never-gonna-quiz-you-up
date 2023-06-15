@@ -24,6 +24,7 @@
 #question{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   color :black;
   width:70vw;
   height: 20vh;
@@ -76,7 +77,8 @@ color: white;
 }
 
 #next-btn {
-  width: 90vw;
+  width: 30vw;
+  height: 10vh;
 }
 
 .hide {
@@ -85,11 +87,14 @@ color: white;
 
 .countdown{
   animation: countdown 5s linear;
+  justify-content:right;
  
 }
 
 #countdown-number {
   color: black;
+  font-size: xx-large ;
+  
 }
 
 #question.hide,
@@ -98,20 +103,45 @@ color: white;
 display: none;
 }
 
+nav {
+  height: 100px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #FFE70C;
+}
+
 .username-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  color: black;
+  height: 100px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #FFE70C;
+}
+
+#userName{
+  margin-right: 30px;
+  margin-left:30px;
+  color:black;
+  background-color:#FFE70C ;
 }
 
 #score {
   margin-right: 30px;
   margin-left:30px;
   color:black;
+  background-color:#FFE70C ;
 }
+
 
 #highScore {
   text-align: center;
+  background-color:#FFE70C ;
 }
+

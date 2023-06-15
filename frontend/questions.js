@@ -2,7 +2,7 @@
 //console.log(input)
 
 
-async function getInput () {
+async function getInput (attempts = 3) {
   try {
   const fetchy = await fetch(`http://localhost:3000/intermediary`)
   const data = await fetchy.json()
@@ -54,10 +54,8 @@ let currentQuestionIndex=0
 const userName=document.getElementById('userName')
 const scoreElement=document.getElementById('score')
 userName.classList.add('userName') 
-//userName.textContent=input  //input
+userName.textContent=input  //input
 scoreElement.textContent="High score: " + highScore
-let subject = "geography"
-let input = "josh"
 let score
 
 
