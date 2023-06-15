@@ -9,29 +9,20 @@ async function getInput () {
   //const leaderboard=await scoreFetch.json();
   let input=data[0].name
   let subject=data[1].subject
-  let highScore = 0
-  console.log(data);
-  //console.log(leaderboard);
+
   
   const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
   const leaderboard = await scoreFetch.json()
   console.log(leaderboard);
   const userHighScores = leaderboard.filter(user => user.name == input);
+  console.log(userHighScores)
   if (!userHighScores.length) {
-    highScore = 0;
+    let highScore = 0;
   } else {
-    let highScore = userHighScores[0]
-    for (let i=0; i<userHighScores.length; i++) {
-      if (userHighScores[i]>highScore) {
-        highScore = userHighScores[i];
-      }
-    }
-  }
+    let highScore = userHighScores[0].score;
 
-  //console.log(highScore)
-  console.log(data)
-  console.log(input)
   thing(input, subject, highScore)
+  }
 }
 
 getInput()
@@ -203,4 +194,3 @@ async function sendScores(name, score, subject) {
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
 } 
 }
-
