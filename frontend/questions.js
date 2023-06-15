@@ -2,7 +2,7 @@
 //console.log(input)
 
 
-async function getInput () {
+async function getInput (attempts=3) {
   try {
   const fetchy = await fetch(`http://localhost:3000/intermediary`)
   const data = await fetchy.json()
@@ -97,14 +97,17 @@ const countDown = setInterval(() => {
        element.classList.add('incorrect')
        element.removeEventListener('click',selectAnswer)
        } ) 
-    timeElement.textContent ="Time up!";
+    
+    if (timeSecond < 1) {
+      timeElement.textContent ="Time up!";
+    }
+
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
     } else {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
-  
   }
 
 },1000)
@@ -112,7 +115,7 @@ const countDown = setInterval(() => {
 
 function setNextQuestion(data) {
   //set timer
-  timer(30)
+  timer(10)
   resetState()
   displayQuestion(data)
 }
@@ -150,7 +153,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   beenClicked = true
   if(correct){
-    score+=10
+    score+= 500 + 50 * (Number(timeElement.textContent.split(" ")[0]));
     scoreElement.textContent="Score: " + score
   }
 
