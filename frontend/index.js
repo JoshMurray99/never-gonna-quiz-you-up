@@ -39,9 +39,13 @@ async function selectSubject(subject) {
 const geographyButton=document.querySelector('.subject.geography')
 const historyButton=document.querySelector('.subject.history')
 geographyButton.addEventListener('click', () => {
-    selectSubject('geography')})
+    selectSubject('geography')
+    const link = geographyButton.querySelector('a.subject__title')
+    window.location.href = link.href;})
 historyButton.addEventListener('click', () => {
-    selectSubject('history')})
+    selectSubject('history')
+    const link = historyButton.querySelector('a.subject__title')
+    window.location.href = link.href;})
 
 
 
