@@ -1,13 +1,14 @@
 //import {input, subject} from './index.js'
 //console.log(input)
-input = 'Kieran',
-subject = "geography"
 
-async function getInput () {
+
+async function getInput (attempts = 3) {
   try {
   const fetchy = await fetch(`http://localhost:3000/intermediary`)
   const data = await fetchy.json()
+  console.log(data)
   let input = data[0].name
+  console.log(input)
   let subject = data[1].subject
   
   let highScore = 0
