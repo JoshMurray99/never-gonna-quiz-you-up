@@ -5,8 +5,8 @@ const fs = require("fs");
 
 const histQuestions = require("./questionsList/historyQuestions.json");
 const geoQuestions = require("./questionsList/geographyQuestions.json");
-const histLeaderboard = require("./Leaderboards/historyLeaderboard.json");
-const geoLeaderboard = require("./Leaderboards/geographyLeaderboard.json");
+let histLeaderboard = require("./Leaderboards/historyLeaderboard.json");
+let geoLeaderboard = require("./Leaderboards/geographyLeaderboard.json");
 
 const numQuestions = 15;
 
@@ -63,11 +63,13 @@ app.post('/:subject', (req, res) => {
     const subject = req.params.subject.toLowerCase();
 
     if (subject === "history") {
+        histLeaderboard = histLeaderboard.filter(obj => obj.name != name);
         histLeaderboard.push({"name":name, "score":score})
         const data = JSON.stringify(histLeaderboard);
         fs.writeFile("./server/Leaderboards/historyLeaderboard.json", data, writeFileError);
         res.sendStatus(201);
     } else if (subject === "geography") {
+        geoLeaderboard = geoLeaderboard.filter(obj=>obj.name != name)
         geoLeaderboard.push({"name":name, "score":score})
         const data = JSON.stringify(geoLeaderboard);
         fs.writeFile("./server/Leaderboards/geographyLeaderboard.json", data, writeFileError);

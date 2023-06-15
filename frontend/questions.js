@@ -87,7 +87,7 @@ function thing(input, subject, highScore) {
       timeSecond -= 0.1;
       timeSecond = Math.round(10*timeSecond)/10;
       timeElement.innerHTML = timeSecond + " seconds left"
-      if (timeSecond<= 0.1 || /*timeSecond <1||*/beenClicked) {
+      if (timeSecond<= 0.1 || beenClicked) {
         clearInterval(countDown)
         answerButtonsElement.childNodes.forEach((element)=>{
           if (timeSecond ==0)
