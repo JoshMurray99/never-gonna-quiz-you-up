@@ -22,20 +22,28 @@ async function createUser(e) {
 const submit=document.querySelector('button')
 submit.addEventListener('click', createUser)
 
-let subject = 'geography'
 
-function questionSelection() {
-     subject = 'History'
-     console.log(subject)
+let subject;
+async function selectSubject(subject) {
+    
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    const response= await fetch(`http://localhost:3000/intermediary-subject/${subject}`, options)
+    console.log(response)
 }
 
+const geographyButton=document.querySelector('.subject.geography')
+const historyButton=document.querySelector('.subject.history')
+geographyButton.addEventListener('click', () => {
+    selectSubject('geography')})
+historyButton.addEventListener('click', () => {
+    selectSubject('history')})
 
 
-console.log(subject)
-
-
-
-export{input,subject}
 
 const geoLeaderboard = document.querySelector("#geoLeaderboard");
 const histLeaderboard = document.querySelector("#histLeaderboard");
