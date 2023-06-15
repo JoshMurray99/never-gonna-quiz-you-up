@@ -14,12 +14,13 @@ async function getInput () {
   const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
   const leaderboard = await scoreFetch.json()
 
+
   const userHighScores = leaderboard.filter(user => user.name == input);
 
   if (!userHighScores.length) {
-    let highScore = 0;
+    highScore = 0;
   } else {
-    let highScore = userHighScores[0].score;
+    highScore = userHighScores[0].score;
   }
   
   thing(input, subject, highScore)
