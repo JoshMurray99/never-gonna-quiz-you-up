@@ -2,22 +2,51 @@
 //console.log(input)
 
 
-// async function getInput () {
-//   const fetchy= await fetch(`http://localhost:3000/intermediary`)
-//   const data=await fetchy.json()
-//   let input=data[0].name
-//   let subject=data[1].subject
-//   let highScore=0
-//   console.log(data)
-//   console.log(input)
-//   thing(input, subject, highScore)
-// }
+async function getInput () {
+  try {
+  const fetchy = await fetch(`http://localhost:3000/intermediary`)
+  const data = await fetchy.json()
+  let input = data[0].name
+  let subject = data[1].subject
+  
+  let highScore = 0
 
-const startButton = document.querySelector('#start-btn')
-const nextButton = document.querySelector('#next-btn')
-const questionContainerElement = document.querySelector('#question-container')
-const questionElement = document.querySelector('#question')
-const answerButtonsElement = document.querySelector('#answer-buttons')
+  const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
+  const leaderboard = await scoreFetch.json()
+
+
+  const userHighScores = leaderboard.filter(user => user.name == input);
+
+  if (!userHighScores.length) {
+    highScore = 0;
+  } else {
+    highScore = userHighScores[0].score;
+  }
+  
+  thing(input, subject, highScore)
+  } catch (error) {
+    if (attempts <= 0) {
+      console.error('Failed to fetch after multiple attempts');
+      return;
+    }
+    // Retry the request with a delay of 1 second
+    setTimeout(() => {
+      getInput(attempts - 1);
+    }, 1000);
+  }
+}
+
+getInput()
+
+
+function thing (input, subject, highScore){
+  
+
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -174,5 +203,5 @@ async function sendScores(name, score, subject) {
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
 } 
-
+}
 

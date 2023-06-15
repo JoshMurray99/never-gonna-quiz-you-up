@@ -4,7 +4,9 @@
     "**/*.sass",
     "**/*.ts",
     "**.json",
-    "**/*.json"
+    "**/*.json",
+    "server/intermediary-name.json",
+    "server/intermediary-subject.json"
 ],
 "liveServer.settings.port": 5501
 }
