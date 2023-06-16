@@ -3,22 +3,50 @@
 //console.log(input)
 
 
-async function getInput () {
-  const fetchy= await fetch(`http://localhost:3000/intermediary`)
-  const data=await fetchy.json()
-  let input=data[0].name
-  let subject=data[1].subject
-  let highScore=0
-  console.log(data)
-  console.log(input)
-  thing(input, subject, highScore)
-}
+async function getInput (attempts=3) {
+  try {
+  const fetchy = await fetch(`http://localhost:3000/intermediary`)
+  const data = await fetchy.json()
+  let input = data[0].name
+  let subject = data[1].subject
+  
+  let highScore = 0
 
-const startButton = document.querySelector('#start-btn')
-const nextButton = document.querySelector('#next-btn')
-const questionContainerElement = document.querySelector('#question-container')
-const questionElement = document.querySelector('#question')
-const answerButtonsElement = document.querySelector('#answer-buttons')
+  const scoreFetch = await fetch(`http://localhost:3000/${subject}/leaderboard`);
+  const leaderboard = await scoreFetch.json()
+
+
+  const userHighScores = leaderboard.filter(user => user.name == input);
+
+  if (!userHighScores.length) {
+    highScore = 0;
+  } else {
+    highScore = userHighScores[0].score;
+  }
+  
+  thing(input, subject, highScore)
+  } catch (error) {
+    if (attempts <= 0) {
+      console.error('Failed to fetch after multiple attempts');
+      return;
+    }
+    // Retry the request with a delay of 1 second
+    setTimeout(() => {
+      getInput(attempts - 1);
+    }, 1000);
+  }
+}
+getInput()
+
+
+function thing (input, subject, highScore){
+  
+
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
 const timeElement = document.querySelector('#countdown-number');
 let beenClicked = false
 let currentQuestionIndex=0
@@ -28,7 +56,6 @@ const scoreElement=document.getElementById('score')
 userName.classList.add('userName') 
 userName.textContent=input  //input
 scoreElement.textContent="High score: " + highScore
-
 let score
 
 
@@ -69,14 +96,17 @@ const countDown = setInterval(() => {
        element.classList.add('incorrect')
        element.removeEventListener('click',selectAnswer)
        } ) 
-    timeElement.textContent ="Time up!";
+    
+    if (timeSecond < 1) {
+      timeElement.textContent ="Time up!";
+    }
+
     if(15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
     } else {
       startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
-  
   }
 
 },1000)
@@ -84,7 +114,7 @@ const countDown = setInterval(() => {
 
 function setNextQuestion(data) {
   //set timer
-  timer(30)
+  timer(10)
   resetState()
   displayQuestion(data)
 }
@@ -122,7 +152,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   beenClicked = true
   if(correct){
-    score+=10
+    score+= 500 + 50 * (Number(timeElement.textContent.split(" ")[0]));
     scoreElement.textContent="Score: " + score
   }
 
@@ -137,11 +167,11 @@ function selectAnswer(e) {
   startButton.innerText = 'Restart'
   startButton.classList.remove('hide')
   if(score>highScore){
-  document.getElementById('score').textContent="End of quiz, new high score!: " +score
+  alert("End of quiz, new high score!: " +score)
   document.getElementById('highScore').textContent="Your high score is: "+score
   sendScores(input, score, subject);
   } else{
-    document.getElementById('score').textContent="End of quiz, your score was: " +score
+    alert("End of quiz, your score was: " +score)
     document.getElementById('highScore').textContent="Your high score is: "+highScore
   }
   
@@ -174,7 +204,7 @@ async function sendScores(name, score, subject) {
 
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
 } 
-
+}
 
 
 },{}]},{},[1]);

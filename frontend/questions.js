@@ -90,39 +90,33 @@ function thing(input, subject, highScore) {
       if (timeSecond<= 0.1 || beenClicked) {
         clearInterval(countDown)
         answerButtonsElement.childNodes.forEach((element)=>{
-          if (timeSecond ==0)
+          if (timeSecond <=0.1){
            element.classList.add('incorrect')
            element.removeEventListener('click',selectAnswer)
-           } ) 
+           } }) 
         
         if (timeSecond <= 0.1) {
           timeElement.textContent ="Time up!";
-        }
-    
+        } 
         if(15 > currentQuestionIndex + 1) {
           nextButton.classList.remove('hide')
         } else {
-          startButton.innerText = 'Restart'
-          startButton.classList.remove('hide')
-        }
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
       }
-    
-    },100)
-    }
-
+  }},100)
+  }
   function setNextQuestion() {
     timer(10);
     resetState();
     displayQuestion(data[currentQuestionIndex]); // Pass the current question to displayQuestion
   }
-
   function displayQuestion(currentQuestion) {
     questionElement.innerText = currentQuestion.question;
     currentQuestion.answersList.forEach(answer => {
       const button = document.createElement('button');
       button.innerText = answer;
       button.classList.add('btn');
-
       if (answer == currentQuestion.answer) {
         button.dataset.correct = true;
       }
@@ -130,7 +124,6 @@ function thing(input, subject, highScore) {
       answerButtonsElement.appendChild(button);
     });
   }
-
   function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hide');
@@ -139,7 +132,6 @@ function thing(input, subject, highScore) {
       answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
   }
-
   function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
@@ -148,12 +140,10 @@ function thing(input, subject, highScore) {
       score += 500 + 50 * (Number(timeElement.textContent.split(" ")[0]));
       scoreElement.textContent = "Score: " + score;
     }
-
     setStatusClass(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
       setStatusClass(button, button.dataset.correct);
     });
-
     if (15 > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide');
     } else {
@@ -164,7 +154,6 @@ function thing(input, subject, highScore) {
       returnHome.addEventListener('click', () => {
         window.location.href = 'index.html';
       });
-
       if (score > highScore) {
         document.getElementById('score').textContent = "End of quiz, new high score!: " + score;
         document.getElementById('highScore').textContent = "Your high score is: " + score;
@@ -175,7 +164,6 @@ function thing(input, subject, highScore) {
       }
     }
   }
-
   function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -184,12 +172,10 @@ function thing(input, subject, highScore) {
       element.classList.add('incorrect');
     }
   }
-
   function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
   }
-
   async function sendScores(name, score, subject) {
     const data = { "name": name, "score": score };
     const options = {
@@ -199,7 +185,6 @@ function thing(input, subject, highScore) {
       },
       body: JSON.stringify(data)
     };
-
     const resp = await fetch(`http://localhost:3000/${subject}`, options);
   }
 }
