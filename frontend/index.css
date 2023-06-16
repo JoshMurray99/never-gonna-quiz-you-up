@@ -1,12 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
+:root {
+    --bc: rgb(184, 181, 181);
+    --nc:#F1D302;
+    --gc:#235789;
+    --hc:#C1292E;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+    margin-left: 20px;
+    text-align: center;
+    text-shadow:0px 4px 10px rgba(0, 0, 0, 0.258);
+}
+
+h2 {
+    color:#161925;
+    font-size: 25px ;
+    margin-left:20px;
+    text-shadow:0px 4px 10px rgba(0, 0, 0, 0.258);
+}
+
+.user {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .submit-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #161925;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
 
 a {
     text-decoration: none;
@@ -20,32 +75,39 @@ button {
 /* NAV */
 
 nav {
-    height: 95px;
+    height: 110px;
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: 50px ;
     display: flex;
     align-items: center;
     padding: 0 12px;
-<<<<<<< HEAD
-    background-color: #FFE70C;
-=======
-    background-color: #ffe70c;
->>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc
+    justify-content:space-between;
+    background-color: var(--nc);
+    border-bottom: 3px solid;
 }
 
 
 
 /* BODY */
+body {
+    background-color: var(--bc);
+}
 
 .homepage {
     display: flex;
     flex-direction: row;
+    
 }
 
 .title {
-    font-size: 72px;
+    font-size: 65px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 40px;
+    text-shadow:0px 8px 8px rgba(0, 0, 0, 0.488);
 }
 
 .quiz {
@@ -92,7 +154,8 @@ figure {
     align-items: center;
     transition: all 300ms ease;
     border-radius: 25px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.596)
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.596);
+    border: solid 3px;
     
 }
 
@@ -105,17 +168,18 @@ figure {
 
 
 .subject__title {
-    color: black;
+    color: #FDFFFC;
     font-size: 38px;
     font-weight: bold;
 }
 
 .geography {
-    background-color: rgba(11, 209, 11, 0.795);
+    background-color: var(--gc);
 }
 
 .history {
-    background-color: #4CDFD7;
+    background-color: var(--hc);
+    margin-top: 100px;
 }
 
 
@@ -129,8 +193,8 @@ li {
 }
 
 .leaderboard {
-    background-color: rgba(128, 0, 128, 0.61);
-    margin-bottom: 20px;
+    
+    margin-bottom: 100px;
     width: 60%;
     height: 40%;
     border-radius: 25px;
@@ -164,8 +228,15 @@ li {
 }
 
 #histLeaderboard {
-    background-color: rgba(255, 0, 0, 0.514);
+    background-color: var(--hc);
     border-radius: 25px;
+    border: solid 3px;
+}
+
+#geoLeaderboard {
+    background-color: var(--gc);
+    border-radius: 25px;
+    border: solid 3px;
 }
 
 .positions {
@@ -183,7 +254,8 @@ li {
     margin: 16px 8px;
     text-align: center;
     font-size: 25px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699)
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
+    
 }
 
 .one {
@@ -210,27 +282,31 @@ ol {
 }
 
 .leaderboard__header, .leaderboard__header--history {
-    background-color: rgba(252, 3, 252, 0.521);;
+    background-color: #FDFFFC;
+    border: solid 3px ;
     padding: 10px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
 }
 
 .leaderboard__header--history {
-    background-color: rgba(255, 0, 0, 0.514);
+    background-color: #FDFFFC;
+    border: solid 3px ;
+}
+
+.leaderboard__title {
+    color: #161925;
 }
 
 li {
-    background-color: rgba(252, 3, 252, 0.747);
+    background-color: #FDFFFC;
     border-radius: 25px;
     padding: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
     font-weight: bold;
-    color: wheat;
+    color: black;
     font-size: 20px;
     
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc
