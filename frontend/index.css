@@ -17,6 +17,8 @@ button {
      margin: 0 12px 0 4px;
 }
 
+
+
 /* NAV */
 
 nav {
@@ -26,7 +28,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 12px;
-    background-color: #ffe70c;
+    background-color: rgba(0, 255, 0, 0.822);
 }
 
 
@@ -107,11 +109,11 @@ figure {
 }
 
 .geography {
-    background-color: rgba(11, 209, 11, 0.795);
+    background-color: rgba(9, 243, 9, 0.795);
 }
 
 .history {
-    background-color: rgba(22, 160, 206, 0.671);
+    background-color: rgba(10, 182, 240, 0.671);
 }
 
 
@@ -125,7 +127,7 @@ li {
 }
 
 .leaderboard {
-    background-color: rgba(128, 0, 128, 0.61);
+    background-color: rgba(0, 255, 0, 0.781);
     margin-bottom: 20px;
     width: 60%;
     height: 40%;
@@ -159,10 +161,7 @@ li {
     align-items: center;
 }
 
-#histLeaderboard {
-    background-color: rgba(255, 0, 0, 0.514);
-    border-radius: 25px;
-}
+
 
 .positions {
     display: flex;
@@ -206,23 +205,22 @@ ol {
 }
 
 .leaderboard__header, .leaderboard__header--history {
-    background-color: rgba(252, 3, 252, 0.521);;
+    background-color: lightblue;;
     padding: 10px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px
 }
 
-.leaderboard__header--history {
-    background-color: rgba(255, 0, 0, 0.514);
-}
+
 
 li {
-    background-color: rgba(252, 3, 252, 0.747);
+    background-color: lightblue;
     border-radius: 25px;
     padding: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
     font-weight: bold;
-    color: wheat;
+    color: white;
+    border: 1px solid rgb(255, 254, 254);
     font-size: 20px;
     
 }
