@@ -90,10 +90,10 @@ function thing(input, subject, highScore) {
       if (timeSecond<= 0.1 || beenClicked) {
         clearInterval(countDown)
         answerButtonsElement.childNodes.forEach((element)=>{
-          if (timeSecond ==0)
+          if (timeSecond <=0.1) {
            element.classList.add('incorrect')
            element.removeEventListener('click',selectAnswer)
-           } ) 
+           }})
         
         if (timeSecond <= 0.1) {
           timeElement.textContent ="Time up!";
