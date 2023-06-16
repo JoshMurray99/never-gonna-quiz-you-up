@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 :root {
-    --bc: rgb(184, 181, 181);
-    --nc:#F1D302;
-    --gc:#235789;
-    --hc:#C1292E;
+    --bc: white;
+    --nc:#FFE70C;
+    --gc:#A3F07E;
+    --hc:#4CDFD7;
 }
 * {
     margin: 0;
@@ -168,7 +168,7 @@ figure {
 
 
 .subject__title {
-    color: #FDFFFC;
+    color: black;
     font-size: 38px;
     font-weight: bold;
 }
@@ -282,7 +282,7 @@ ol {
 }
 
 .leaderboard__header, .leaderboard__header--history {
-    background-color: #FDFFFC;
+    background-color: #FFE70C;
     border: solid 3px ;
     padding: 10px;
     border-top-left-radius: 15px;
@@ -291,7 +291,7 @@ ol {
 }
 
 .leaderboard__header--history {
-    background-color: #FDFFFC;
+    background-color: #FFE70C;
     border: solid 3px ;
 }
 
