@@ -93,7 +93,7 @@ function thing(input, subject, highScore) {
           if (timeSecond <=0.1){
            element.classList.add('incorrect')
            element.removeEventListener('click',selectAnswer)
-           } }) 
+           }})
         
         if (timeSecond <= 0.1) {
           timeElement.textContent ="Time up!";
