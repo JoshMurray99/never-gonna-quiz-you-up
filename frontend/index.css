@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
 :root {
-    --bc: rgb(184, 181, 181);
-    --nc:#F1D302;
-    --gc:#235789;
-    --hc:#C1292E;
+    --bc: white;
+    --nc:#FFE70C;
+    --gc:#A3F07E;
+    --hc:#4CDFD7;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 h1 {
@@ -168,7 +168,7 @@ figure {
 
 
 .subject__title {
-    color: #FDFFFC;
+    color: black;
     font-size: 38px;
     font-weight: bold;
 }
@@ -207,7 +207,7 @@ li {
 .leaderboard__title {
     font-size: 20px;
     font-weight: bold;
-    color: white
+    color:black
 }
 
 
@@ -259,17 +259,17 @@ li {
 }
 
 .one {
-    background-color: gold;
+    background-color: rgb(244, 216, 6);
     color: white;
 }
 
 .two {
-    background-color: silver;
+    background-color: rgb(216, 213, 213);
     color: white;
 }
 
 .three {
-    background-color: brown;
+    background-color: rgb(235, 163, 9);
     color: white;
 }
 
@@ -282,7 +282,7 @@ ol {
 }
 
 .leaderboard__header, .leaderboard__header--history {
-    background-color: #FDFFFC;
+    background-color: #FFE70C;
     border: solid 3px ;
     padding: 10px;
     border-top-left-radius: 15px;
@@ -291,7 +291,7 @@ ol {
 }
 
 .leaderboard__header--history {
-    background-color: #FDFFFC;
+    background-color: #FFE70C;
     border: solid 3px ;
 }
 
@@ -309,4 +309,3 @@ li {
     font-size: 20px;
     
 }
-
