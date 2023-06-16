@@ -26,11 +26,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 12px;
-<<<<<<< HEAD
-    background-color: #FFE70C;
-=======
     background-color: #ffe70c;
->>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc
 }
 
 
@@ -111,7 +107,7 @@ figure {
 }
 
 .geography {
-    background-color: rgba(11, 209, 11, 0.795);
+    background-color: #A3F07E;
 }
 
 .history {
@@ -129,7 +125,7 @@ li {
 }
 
 .leaderboard {
-    background-color: rgba(128, 0, 128, 0.61);
+    background-color: #ffe70c;
     margin-bottom: 20px;
     width: 60%;
     height: 40%;
@@ -143,7 +139,7 @@ li {
 .leaderboard__title {
     font-size: 20px;
     font-weight: bold;
-    color: white
+    color:black
 }
 
 
@@ -164,7 +160,7 @@ li {
 }
 
 #histLeaderboard {
-    background-color: rgba(255, 0, 0, 0.514);
+    background-color: #FFE70C;
     border-radius: 25px;
 }
 
@@ -183,21 +179,21 @@ li {
     margin: 16px 8px;
     text-align: center;
     font-size: 25px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699)
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.699)
 }
 
 .one {
-    background-color: gold;
+    background-color: rgb(244, 216, 6);
     color: white;
 }
 
 .two {
-    background-color: silver;
+    background-color: rgb(216, 213, 213);
     color: white;
 }
 
 .three {
-    background-color: brown;
+    background-color: rgb(235, 163, 9);
     color: white;
 }
 
@@ -210,27 +206,23 @@ ol {
 }
 
 .leaderboard__header, .leaderboard__header--history {
-    background-color: rgba(252, 3, 252, 0.521);;
+    background-color: #A3F07E;
     padding: 10px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px
 }
 
 .leaderboard__header--history {
-    background-color: rgba(255, 0, 0, 0.514);
+    background-color: #A3F07E;
 }
 
 li {
-    background-color: rgba(252, 3, 252, 0.747);
+    background-color: #4CDFD7;
     border-radius: 25px;
     padding: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.699);
     font-weight: bold;
-    color: wheat;
+    color: black;
     font-size: 20px;
     
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 374d6b510bae2c1812cbac763e42e8e8580ca7fc

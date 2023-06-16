@@ -33,7 +33,7 @@ body{
   width:750px;
   height: 150px;
   box-shadow: 4px 8px 16px rgba(0, 10, 0, 0.699);
-  background-color: rgba(11, 209, 11, 0.795);
+  background-color: #A3F07E;
   margin: 20px auto;
   border-radius: 10px;
   justify-content:center;
@@ -61,11 +61,11 @@ gap: 20px;
 }
 
 .btn.correct {
-  background-color:rgba(6, 248, 6, 0.795);
+  background-color:#4CDFD7;
 }
 
 .btn.incorrect {
-  background-color: rgb(255, 15, 15);
+  background-color: #3071EF;
 }
 
 
