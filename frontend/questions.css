@@ -13,7 +13,6 @@ body{
   
 }
 
-
 #question-container {
   display:flex;
   justify-content: center;;
@@ -38,7 +37,6 @@ body{
   border-radius: 10px;
   justify-content:center;
 }
-
 
 
 .answer-grid {
@@ -67,7 +65,6 @@ gap: 20px;
 .btn.incorrect {
   background-color: #3071EF;
 }
-
 
 .btn:hover {
   border-color: black;
@@ -108,7 +105,6 @@ gap: 20px;
 #answer-buttons.hide {
 display: none;
 }
-
 
 .username-container {
   height: 80px;
@@ -151,10 +147,8 @@ display: none;
   box-shadow: 4px 4px 4px rgba(0, 10, 0, 0.699);
 }
 
-
 #highScore {
   text-align: center;
   background-color:#FFE70C ;
   justify-content: right;
 }
-
